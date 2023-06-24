@@ -286,6 +286,7 @@ mod value_tests {
     #[test]
     fn unpickle_all() {
         for &(major, proto) in TEST_CASES {
+            println!("{},{}", major, proto);
             let file = File::open(format!("test/data/tests_py{}_proto{}.pickle", major, proto)).unwrap();
             let comparison = get_test_object(major);
             let unpickled = value_from_reader(file, Default::default()).unwrap();
